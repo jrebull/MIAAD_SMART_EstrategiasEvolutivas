@@ -1,0 +1,58 @@
+[
+  {
+    "n_runs": 30,
+    "gap_mean": 0.0,
+    "gap_std": 0.0,
+    "success_rate": 100.0,
+    "best_fitness_mean": 1.0,
+    "best_fitness_std": 0.0,
+    "best_fitness_max": 1.0,
+    "best_fitness_min": 1.0,
+    "variant": "plus_iso",
+    "variant_label": "(\u03bc+\u03bb) Isotr\u00f3pica",
+    "gens_to_success_mean": 22.233333333333334,
+    "gens_to_success_std": 3.460947979895137
+  },
+  {
+    "n_runs": 30,
+    "gap_mean": 1.7393494052460786e-16,
+    "gap_std": 6.309628121713822e-17,
+    "success_rate": 100.0,
+    "best_fitness_mean": 0.9999999999999998,
+    "best_fitness_std": 7.984667951577998e-17,
+    "best_fitness_max": 0.9999999999999999,
+    "best_fitness_min": 0.9999999999999997,
+    "variant": "comma_iso",
+    "variant_label": "(\u03bc,\u03bb) Isotr\u00f3pica",
+    "gens_to_success_mean": 24.0,
+    "gens_to_success_std": 3.0057416320470214
+  },
+  {
+    "n_runs": 30,
+    "gap_mean": 0.0,
+    "gap_std": 0.0,
+    "success_rate": 100.0,
+    "best_fitness_mean": 1.0,
+    "best_fitness_std": 0.0,
+    "best_fitness_max": 1.0,
+    "best_fitness_min": 1.0,
+    "variant": "plus_aniso",
+    "variant_label": "(\u03bc+\u03bb) Anisotr\u00f3pica",
+    "gens_to_success_mean": 31.7,
+    "gens_to_success_std": 7.273712707532802
+  },
+  {
+    "n_runs": 30,
+    "gap_mean": 2.9605947323337506e-16,
+    "gap_std": 1.023921031023476e-16,
+    "success_rate": 100.0,
+    "best_fitness_mean": 0.9999999999999998,
+    "best_fitness_std": 1.2708755636133584e-16,
+    "best_fitness_max": 0.9999999999999999,
+    "best_fitness_min": 0.9999999999999994,
+    "variant": "comma_aniso",
+    "variant_label": "(\u03bc,\u03bb) Anisotr\u00f3pica",
+    "gens_to_success_mean": 39.233333333333334,
+    "gens_to_success_std": 13.783256542615037
+  }
+]

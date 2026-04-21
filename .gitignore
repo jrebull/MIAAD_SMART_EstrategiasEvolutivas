@@ -1,0 +1,49 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Resultados intermedios grandes (conservar JSON pequeño en git, CSVs se regeneran)
+results/*.csv
+results/*_full.json
+results/raw/
+
+# macOS / editores
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# LaTeX (no generamos PDF local)
+LaTeX/*.aux
+LaTeX/*.log
+LaTeX/*.out
+LaTeX/*.toc
+LaTeX/*.synctex.gz
+LaTeX/*.bbl
+LaTeX/*.blg
+LaTeX/*.pdf
+
+# Node / Nuxt
+node_modules/
+.nuxt/
+.output/
+.nitro/
+.cache/
+dist/
+web/node_modules/
+web/.nuxt/
+web/.output/
+web/dist/
+web/dist
+
+# Misc
+*.bak
+*.tmp

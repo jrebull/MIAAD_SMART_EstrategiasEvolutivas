@@ -1,7 +1,6 @@
 [build]
-  base      = "web"
-  command   = "npm run generate"
-  publish   = ".output/public"
+  command = "cd web && npm install && npm run generate"
+  publish = "web/.output/public"
 
 [build.environment]
   NODE_VERSION = "20"

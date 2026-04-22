@@ -120,7 +120,7 @@
 \hfill
 \begin{minipage}[c]{\dimexpr\textwidth-5.2cm\relax}
     \centering
-    {\Large\bfseries\scshape Universidad Autónoma de Ciudad Juárez}\\[2pt]
+    {\Large\bfseries\MakeUppercase{Universidad Autónoma de Ciudad Juárez}}\\[2pt]
     {\normalsize Maestría en Inteligencia Artificial y Analítica de Datos}\\[2pt]
     {\small Optimización Inteligente \textcolor{uacjgray}{\textbullet} Mtro.~Raúl Gibrán Porras Alaniz}\\[8pt]
     {\LARGE\bfseries Práctica de Estrategias Evolutivas:}\\[2pt]
@@ -389,13 +389,15 @@ La Tabla~\ref{tab:resultados} consolida los tres indicadores obligatorios de la 
 \label{tab:resultados}
 % VALORES GENERADOS DESDE results/per_variant_summary.json y results/summary.csv
 \renewcommand{\arraystretch}{1.35}
+\setlength{\tabcolsep}{4pt}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccc}
     \toprule
     \rowcolor{tablehead}
     \textcolor{white}{\textbf{Variante}} &
     \textcolor{white}{\textbf{Gap final (media $\pm\sigma$)}} &
     \textcolor{white}{\textbf{Éxito (\%)}} &
-    \textcolor{white}{\textbf{Gen}$\bm{\to 0.95}$} &
+    \textcolor{white}{\textbf{Gen $\to$ 0.95}} &
     \textcolor{white}{\textbf{Mejor fitness prom.}} \\
     \midrule
     $(\mu+\lambda)$ Isotrópica    & $0 \pm 0$                                      & $100.0$ & $22.23 \pm  3.46$ & $1.000000$ \\
@@ -405,7 +407,8 @@ La Tabla~\ref{tab:resultados} consolida los tres indicadores obligatorios de la 
     \rowcolor{gray!8}
     $(\mu,\lambda)$ Anisotrópica  & $2.96\times10^{-16} \pm 1.02\times10^{-16}$    & $100.0$ & $39.23 \pm 13.78$ & $1.000000$ \\
     \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \subsection{Velocidad al umbral de éxito}

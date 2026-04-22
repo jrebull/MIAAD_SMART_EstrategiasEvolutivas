@@ -25,6 +25,18 @@ const props = defineProps<{
 
 const defaultFmt = (v: number) => (Math.abs(v) >= 1 || v === 0 ? v.toFixed(2) : v.toExponential(2))
 
+const tickFmt = (v: number) => {
+  if (v === 0) return '0'
+  const abs = Math.abs(v)
+  if (abs >= 0.01 && abs < 10000) return Number(v.toPrecision(3)).toString()
+  const exp = Math.floor(Math.log10(abs))
+  const mantissa = v / Math.pow(10, exp)
+  const mStr = Math.abs(mantissa - 1) < 1e-9 ? '10' : `${Number(mantissa.toPrecision(2))}·10`
+  const supers: Record<string, string> = { '-': '⁻', '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' }
+  const expStr = String(exp).split('').map(c => supers[c] ?? c).join('')
+  return `${mStr}${expStr}`
+}
+
 const chartData = computed(() => ({
   labels: props.items.map(i => i.label),
   datasets: [
@@ -56,8 +68,19 @@ const chartOptions = computed(() => ({
   },
   scales: {
     y: props.logScale
-      ? { type: 'logarithmic' as const, title: { display: true, text: props.yLabel } }
-      : { title: { display: true, text: props.yLabel }, beginAtZero: true }
+      ? {
+          type: 'logarithmic' as const,
+          title: { display: true, text: props.yLabel },
+          ticks: {
+            callback: (v: number | string) => tickFmt(Number(v)),
+            maxTicksLimit: 8
+          }
+        }
+      : {
+          title: { display: true, text: props.yLabel },
+          beginAtZero: true,
+          ticks: { callback: (v: number | string) => tickFmt(Number(v)) }
+        }
   }
 }))
 </script>

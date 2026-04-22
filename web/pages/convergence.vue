@@ -4,7 +4,7 @@ interface ConvergenceData {
   variants: Record<string, { label: string, color: string, mean: number[], std: number[] }>
 }
 
-const { data } = await useFetch<ConvergenceData>('/data/convergence.json')
+const { data } = await useFetch<ConvergenceData>('/data/convergence.json', { server: false })
 
 const logScale = ref(false)
 const maxGen = ref(120)
@@ -70,12 +70,22 @@ const slicedData = computed<ConvergenceData | null>(() => {
         </label>
       </div>
 
-      <ConvergenceChart
-        v-if="slicedData"
-        :data="slicedData"
-        :log-scale="logScale"
-        :key="logScale ? 'log' : 'lin'"
-      />
+      <ClientOnly>
+        <ConvergenceChart
+          v-if="slicedData"
+          :data="slicedData"
+          :log-scale="logScale"
+          :key="logScale ? 'log' : 'lin'"
+        />
+        <div v-else class="h-[440px] flex items-center justify-center text-slate-400 text-sm">
+          Cargando datos de convergencia…
+        </div>
+        <template #fallback>
+          <div class="h-[440px] flex items-center justify-center text-slate-400 text-sm">
+            Cargando datos de convergencia…
+          </div>
+        </template>
+      </ClientOnly>
     </div>
 
     <section class="card mt-6">

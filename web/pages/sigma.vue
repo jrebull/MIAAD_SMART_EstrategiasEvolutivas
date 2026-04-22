@@ -7,7 +7,7 @@ interface SigmaSeries {
 }
 type SigmaEntries = Record<string, SigmaSeries>
 
-const { data } = await useFetch<SigmaEntries>('/data/sigma_evolution.json')
+const { data } = await useFetch<SigmaEntries>('/data/sigma_evolution.json', { server: false })
 
 useHead({ title: 'Evolución de σ — EE Isotropía vs Anisotropía' })
 
@@ -43,17 +43,27 @@ const sigmaRatio = computed(() => {
       </p>
     </header>
 
-    <section v-if="data" class="card">
+    <section class="card">
       <h2 class="section-title">σ isotrópico (1 valor por variante)</h2>
       <p class="text-sm text-slate-600 mt-1">
         En la mutación isotrópica todos los ejes comparten un mismo σ. Se espera un decaimiento monótono a medida que el algoritmo se acerca al óptimo.
       </p>
       <div class="mt-4">
-        <SigmaChart :entries="data" :iso-only="true" :max-generations="maxGen" />
+        <ClientOnly>
+          <SigmaChart v-if="data" :entries="data" :iso-only="true" :max-generations="maxGen" />
+          <div v-else class="h-[440px] flex items-center justify-center text-slate-400 text-sm">
+            Cargando datos de σ…
+          </div>
+          <template #fallback>
+            <div class="h-[440px] flex items-center justify-center text-slate-400 text-sm">
+              Cargando datos de σ…
+            </div>
+          </template>
+        </ClientOnly>
       </div>
     </section>
 
-    <section v-if="data" class="card mt-8">
+    <section class="card mt-8">
       <div class="flex flex-wrap items-center justify-between gap-4">
         <h2 class="section-title mb-0">σ anisotrópico (D = 10 valores)</h2>
         <div class="flex gap-2">
@@ -87,12 +97,23 @@ const sigmaRatio = computed(() => {
       </label>
 
       <div class="mt-4">
-        <SigmaChart
-          :entries="entriesForAniso"
-          :aniso-variant="anisoVariant"
-          :max-generations="maxGen"
-          :key="anisoVariant + '-' + maxGen"
-        />
+        <ClientOnly>
+          <SigmaChart
+            v-if="data"
+            :entries="data"
+            :aniso-variant="anisoVariant"
+            :max-generations="maxGen"
+            :key="anisoVariant + '-' + maxGen"
+          />
+          <div v-else class="h-[440px] flex items-center justify-center text-slate-400 text-sm">
+            Cargando datos de σ…
+          </div>
+          <template #fallback>
+            <div class="h-[440px] flex items-center justify-center text-slate-400 text-sm">
+              Cargando datos de σ…
+            </div>
+          </template>
+        </ClientOnly>
       </div>
 
       <div v-if="sigmaRatio" class="mt-6 rounded-md border border-slate-200 bg-slate-50 p-4">

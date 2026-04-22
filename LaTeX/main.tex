@@ -380,7 +380,7 @@ La Figura~\ref{fig:convergencia_log} traslada el gráfico anterior a escala loga
 
 \subsection{Tabla comparativa de desempeño}
 
-La Tabla~\ref{tab:resultados} consolida los tres indicadores por variante. Como todas las corridas alcanzan el óptimo, el Gap final es numéricamente nulo y la tasa de éxito es del 100\,\%; el diferenciador es la \textbf{velocidad de convergencia}.
+La Tabla~\ref{tab:resultados} consolida los tres indicadores obligatorios de la rúbrica por variante: \textbf{Gap final} (media y desviación estándar sobre las 30 corridas), \textbf{Tasa de éxito} (porcentaje de corridas que alcanzan $f\geq 0.95$) y \textbf{velocidad de convergencia}. Como todas las corridas alcanzan el óptimo, el Gap final es numéricamente nulo y la tasa de éxito es del 100\,\%; el diferenciador es la velocidad de convergencia.
 
 \begin{table}[H]
 \centering
@@ -392,17 +392,17 @@ La Tabla~\ref{tab:resultados} consolida los tres indicadores por variante. Como 
     \toprule
     \rowcolor{tablehead}
     \textcolor{white}{\textbf{Variante}} &
-    \textcolor{white}{\textbf{Gap final}} &
+    \textcolor{white}{\textbf{Gap final (media $\pm\sigma$)}} &
     \textcolor{white}{\textbf{Éxito (\%)}} &
     \textcolor{white}{\textbf{Gen}$\bm{\to 0.95}$} &
     \textcolor{white}{\textbf{Mejor fitness prom.}} \\
     \midrule
-    $(\mu+\lambda)$ Isotrópica    & $<10^{-16}$              & $100.0$ & $22.23 \pm  3.46$ & $1.000000$ \\
+    $(\mu+\lambda)$ Isotrópica    & $0 \pm 0$                                      & $100.0$ & $22.23 \pm  3.46$ & $1.000000$ \\
     \rowcolor{gray!8}
-    $(\mu,\lambda)$ Isotrópica    & $1.7\times10^{-16}$      & $100.0$ & $24.00 \pm  3.01$ & $1.000000$ \\
-    $(\mu+\lambda)$ Anisotrópica  & $<10^{-16}$              & $100.0$ & $31.70 \pm  7.27$ & $1.000000$ \\
+    $(\mu,\lambda)$ Isotrópica    & $1.74\times10^{-16} \pm 6.31\times10^{-17}$    & $100.0$ & $24.00 \pm  3.01$ & $1.000000$ \\
+    $(\mu+\lambda)$ Anisotrópica  & $0 \pm 0$                                      & $100.0$ & $31.70 \pm  7.27$ & $1.000000$ \\
     \rowcolor{gray!8}
-    $(\mu,\lambda)$ Anisotrópica  & $3.0\times10^{-16}$      & $100.0$ & $39.23 \pm 13.78$ & $1.000000$ \\
+    $(\mu,\lambda)$ Anisotrópica  & $2.96\times10^{-16} \pm 1.02\times10^{-16}$    & $100.0$ & $39.23 \pm 13.78$ & $1.000000$ \\
     \bottomrule
 \end{tabular}
 \end{table}

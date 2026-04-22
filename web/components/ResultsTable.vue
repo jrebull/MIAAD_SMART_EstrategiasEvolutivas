@@ -33,7 +33,7 @@ const worstVariant = computed(() => {
       <thead>
         <tr>
           <th>Variante</th>
-          <th class="text-right">Gap promedio</th>
+          <th class="text-right">Gap (media ± σ)</th>
           <th class="text-right">Éxito (%)</th>
           <th class="text-right">Gen → f ≥ 0.95</th>
           <th class="text-right">Mejor fitness prom.</th>
@@ -53,7 +53,7 @@ const worstVariant = computed(() => {
             <span class="inline-block w-3 h-3 rounded-full" :style="{ backgroundColor: v.color }" />
             {{ v.label }}
           </td>
-          <td class="text-right font-mono">{{ fmtGap(v.gap_mean) }}</td>
+          <td class="text-right font-mono">{{ fmtGap(v.gap_mean) }} ± {{ fmtGap(v.gap_std) }}</td>
           <td class="text-right font-mono">{{ v.success_rate.toFixed(1) }}</td>
           <td class="text-right font-mono">
             {{ v.gens_to_success_mean.toFixed(2) }} ± {{ v.gens_to_success_std.toFixed(2) }}

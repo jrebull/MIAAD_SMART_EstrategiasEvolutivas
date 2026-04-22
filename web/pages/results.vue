@@ -46,8 +46,8 @@ const gensItems = computed(() =>
       <p class="text-uacj-gold font-semibold tracking-widest uppercase text-xs">Resultados</p>
       <h1 class="mt-2 text-3xl md:text-4xl font-bold text-slate-900">Comparativa global de las 4 variantes</h1>
       <p class="mt-3 text-slate-600 max-w-3xl">
-        Métricas agregadas sobre 30 ejecuciones independientes por variante.
-        La mejor variante (por generaciones hasta el éxito) aparece resaltada en verde; la peor, en rojo.
+        Métricas agregadas sobre 30 ejecuciones independientes por variante. Se reportan las tres cantidades obligatorias de la rúbrica: <strong>Gap final</strong> (media $\pm\sigma$), <strong>tasa de éxito</strong> ($f\geq 0.95$) y la <strong>convergencia promedio</strong> (ver pestaña Convergencia).
+        La mejor variante por generaciones hasta el éxito aparece resaltada en verde; la peor, en rojo.
       </p>
     </header>
 

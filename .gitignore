@@ -47,3 +47,7 @@ web/dist
 # Misc
 *.bak
 *.tmp
+
+# Archivos locales (no versionar)
+CLAUDE.md
+SuperPrompt_EstrategiasEvolutivas.md
